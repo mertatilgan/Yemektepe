@@ -1,5 +1,6 @@
 # Yemektepe
-This is a simple Flask web application that scrapes a menu from the Hacettepe University's Office of Health, Culture and Sports (SKSDB) website and displays it for the current week.
+This is a simple Flask web application that scrapes a menu from the Hacettepe University's Office of Health, Culture and Sports (SKSDB) website and displays it for the current week. You can access the demo of this application by visiting: [http://52.166.178.55](http://52.166.178.55)
+
 
 ## Requirements
 Before you can run this application, make sure you have the following requirements installed:
