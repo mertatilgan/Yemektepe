@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from flask import Flask, render_template
 
-locale.setlocale(locale.LC_ALL, 'tr_TR')
+locale.setlocale(locale.LC_ALL, '')
 
 app = Flask(__name__)
 
