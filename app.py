@@ -14,7 +14,6 @@ app = Flask(__name__)
 async def scrape_menu():
     async with aiohttp.ClientSession() as session:
         async with session.get('https://sksdb.hacettepe.edu.tr/YemekListesi.xml') as response:
-            print("Status:", response.status)
             xml_data = await response.text()
             new_meals_data = parse_menu(xml_data)
             return new_meals_data

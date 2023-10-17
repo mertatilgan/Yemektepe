@@ -1,0 +1,18 @@
+.list-group-item.active {
+    color: #fff;
+    background-color: #e20a16;
+    border-color: #c90a15;
+}
+
+.me {
+    color: #e20a16;
+}
+
+.me:hover {
+    color: #c90a15;
+}
+
+li {
+    font-size: 20px;
+    list-style-type: disc !important;
+}
