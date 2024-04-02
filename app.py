@@ -53,6 +53,7 @@ def index():
     for day_offset in range(7):
         date_to_check = today + timedelta(days=day_offset)
         formatted_date = date_to_check.strftime("%#d.%m.%Y")
+
         day_name = calendar.day_name[date_to_check.weekday()]
 
         if formatted_date in meals_data:
@@ -64,21 +65,14 @@ def index():
 
             meals_dict["meals"] = meals_data[formatted_date]
             meals_list.append(meals_dict)
-        else:
-            try:
-                formatted_date = date_to_check.strftime("%d.%m.%Y")
-                if formatted_date in meals_data:
-                    meals_dict = {}
-                    if day_offset == 0:
-                        meals_dict["date"] = f"Bugünün Menüsü ({formatted_date})"
-                    else:
-                        meals_dict["date"] = f"{day_name} Gününün Menüsü ({formatted_date})"
 
-                    meals_dict["meals"] = meals_data[formatted_date]
-                    meals_list.append(meals_dict)
-            except:
-                meals_list.append(
-                    {"date": f"{day_name}, {formatted_date}", "meals": ["Yemek bulunamadı."]})
+        elif date_to_check.strftime("%-d.%m.%Y") in meals_data:
+            formatted_date = date_to_check.strftime("%-d.%m.%Y")
+            meals_list.append(
+                {"date": f"{day_name}, {formatted_date}", "meals": meals_data[formatted_date]})
+        else:
+            meals_list.append(
+                {"date": f"{day_name}, {formatted_date}", "meals": ["Yemek bulunamadı."]})
 
     return render_template('meals.html', meals=meals_list)
 
