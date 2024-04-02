@@ -52,7 +52,11 @@ def index():
 
     for day_offset in range(7):
         date_to_check = today + timedelta(days=day_offset)
-        formatted_date = date_to_check.strftime("%#d.%m.%Y")
+        try:
+            formatted_date = date_to_check.strftime("%#d.%m.%Y")
+        except ValueError:
+            formatted_date = date_to_check.strftime("%d.%m.%Y")
+
         day_name = calendar.day_name[date_to_check.weekday()]
 
         if formatted_date in meals_data:
