@@ -12,16 +12,6 @@
 
 <body>
     <div class="container">
-        <br>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Ramazan nedeniyle akşam yemeği saati <strong>17.30 - 20.00</strong> olarak
-            değişmiştir.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-
-
         <ul class="list-group mt-4">
             {% for meal in meals %}
             <li class="list-group-item {% if loop.index0 == 0 %}active{% endif %}">
