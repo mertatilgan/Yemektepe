@@ -16,3 +16,23 @@ li {
     font-size: 20px;
     list-style-type: disc !important;
 }
+
+.line {
+    border-top: 2px dashed;
+}
+
+.line.active {
+    border-top: 2px dashed #fff;
+}
+
+.timer {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.alert-danger {
+    background-color: #e20a16;
+    border-color: #c90a15;
+    color: #fff;
+}

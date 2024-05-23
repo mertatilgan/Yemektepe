@@ -34,7 +34,8 @@ def parse_menu(xml_string):
         yemekler = gun.find('yemekler')
         meals = [clean_meal_name(yemek.text.strip())
                  for yemek in yemekler.findall('yemek')]
-        meals_by_date[tarih] = meals
+        kalori = gun.find('kalori').text.strip()
+        meals_by_date[tarih] = {"meals": meals, "calories": kalori}
 
     return meals_by_date
 
@@ -63,16 +64,21 @@ def index():
             else:
                 meals_dict["date"] = f"{day_name} Gününün Menüsü ({formatted_date})"
 
-            meals_dict["meals"] = meals_data[formatted_date]
+            meals_dict["meals"] = meals_data[formatted_date]["meals"]
+            meals_dict["calories"] = meals_data[formatted_date]["calories"]
             meals_list.append(meals_dict)
 
         elif date_to_check.strftime("%-d.%m.%Y") in meals_data:
             formatted_date = date_to_check.strftime("%-d.%m.%Y")
             meals_list.append(
-                {"date": f"{day_name}, {formatted_date}", "meals": meals_data[formatted_date]})
+                {"date": f"{day_name}, {formatted_date}",
+                 "meals": meals_data[formatted_date]["meals"],
+                 "calories": meals_data[formatted_date]["calories"]})
         else:
             meals_list.append(
-                {"date": f"{day_name}, {formatted_date}", "meals": ["Yemek bulunamadı."]})
+                {"date": f"{day_name}, {formatted_date}",
+                 "meals": ["Yemek bulunamadı."],
+                 "calories": "N/A"})
 
     return render_template('meals.html', meals=meals_list)
 
