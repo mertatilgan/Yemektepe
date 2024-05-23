@@ -18,11 +18,11 @@ li {
 }
 
 .line {
-    border-top: 2px dashed;
+    background-color: #fff;
 }
 
 .line.active {
-    border-top: 2px dashed #fff;
+    background-color: #fff;
 }
 
 .timer {
@@ -35,4 +35,53 @@ li {
     background-color: #e20a16;
     border-color: #c90a15;
     color: #fff;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #252525;
+        color: #fff;
+    }
+
+    hr {
+        background-color: #6c757d;
+    }
+
+    .list-group-item.active {
+        background-color: #c90a15;
+        border-color: #e20a16;
+    }
+
+    .list-group-item {
+        background-color: #333;
+        border-color: #333;
+    }
+
+    .card-header {
+        background-color: #252525;
+        border-color: #333;
+    }
+
+    .me {
+        color: #c90a15;
+    }
+
+    .me:hover {
+        color: #e20a16;
+    }
+
+    .line {
+        background-color: #656565;
+    }
+
+    .line.active {
+        background-color: #fff;
+    }
+
+    .alert-danger {
+        background-color: #c90a15;
+        border-color: #e20a16;
+        color: #fff;
+    }
 }
